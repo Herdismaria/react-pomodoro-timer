@@ -40,7 +40,7 @@ class Timer extends React.Component {
   render() {
     return (
       <div className='timer'>
-        <div className='container'>
+        <div className='container-fluid'>
           <div className='row row-centered'>
             <div className='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
               <TimerCountdownControls type={this.state.type}  onSetType={this.setType}/>

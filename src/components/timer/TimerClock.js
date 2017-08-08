@@ -5,11 +5,11 @@ class TimerClock extends React.Component {
     var hours = Math.floor(totalSeconds / 3600);
     var secondsLeft = totalSeconds - (hours * 3600);
     var minutes = Math.floor(secondsLeft / 60);
-    var seconds =  secondsLeft - (minutes * 60);
+    var seconds = secondsLeft - (minutes * 60);
     if (seconds < 10) {
       seconds = '0' + seconds;
     }
-    if(minutes < 10) {
+    if (minutes < 10) {
       minutes = '0' + minutes;
     }
     if (hours < 10) {
@@ -22,12 +22,8 @@ class TimerClock extends React.Component {
     let time = this.formatSeconds(this.props.seconds);
     return (
       <div className='timer-clock'>
-        <div className='row'>
-          <div className='col-xs-12 col-sm-12 col-md-12'>
-            <div className='jumbotron text-center'>
-              <h1>{time}</h1>
-            </div>
-          </div>
+        <div className='jumbotron text-center'>
+          <h1>{time}</h1>
         </div>
       </div>
     );

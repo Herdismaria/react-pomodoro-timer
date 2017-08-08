@@ -5,9 +5,6 @@ class TimerCountdownControls extends React.Component {
     let type = this.props.type;
 
     return (
-      <div>
-        <div className='row'>
-          <div className='col-xs-12 col-sm-12 col-md-12'>
             <div className='timer-countdown-controls'>
               <div className="btn-group btn-group-justified btn-group-vertical" role="group" aria-label="...">
                 <div className="btn-group" role="group">
@@ -32,9 +29,6 @@ class TimerCountdownControls extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
     );
   }
 }
