@@ -22,8 +22,12 @@ class TimerClock extends React.Component {
     let time = this.formatSeconds(this.props.seconds);
     return (
       <div className='timer-clock'>
-        <div className='jumbotron text-center'>
-          <h1>{time}</h1>
+        <div className='row'>
+          <div className='col-xs-12 col-sm-12 col-md-12'>
+            <div className='jumbotron text-center'>
+              <h1>{time}</h1>
+            </div>
+          </div>
         </div>
       </div>
     );
