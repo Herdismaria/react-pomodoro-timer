@@ -40,19 +40,16 @@ class Timer extends React.Component {
   render() {
     return (
       <div className='timer'>
-        <div className='container-fluid'>
-          <div className='row row-centered'>
-            <div className='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-              <TimerCountdownControls type={this.state.type}  onSetType={this.setType}/>
-              <TimerClock seconds={this.state.totalSeconds}/>
-              <TimerControls onToggle={this.toggleTimer.bind(this)} onReset={this.resetTimer.bind(this)}
-                timerStatus={this.state.timerStatus}/>
-              </div>
-            </div>
+        <div className='row row-centered'>
+          <div className='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+            <TimerCountdownControls type={this.state.type} onSetType={this.setType}/>
+            <TimerClock seconds={this.state.totalSeconds}/>
+            <TimerControls onToggle={this.toggleTimer.bind(this)} onReset={this.resetTimer.bind(this)} timerStatus={this.state.timerStatus}/>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
+}
 
-  export default Timer;
+export default Timer;

@@ -7,10 +7,11 @@ class Main extends React.Component {
   render() {
     return (
       <main>
-        <Switch>
-          <Route exact path='/' component={Timer}/>
-          <Route path='/timer' component={Timer}/>
-        </Switch>
+        <div className='container-fluid'>
+          <Switch>
+            <Route exact path='/' component={Timer}/>
+          </Switch>
+        </div>
       </main>
     );
   }

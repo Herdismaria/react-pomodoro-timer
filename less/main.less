@@ -59,7 +59,10 @@ html {
     height: 100%;
 }
 body {
-  margin-bottom: 220px;
+  position: relative;
+  margin: 0;
+  padding-bottom: 200px;
+  min-height: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -83,9 +86,13 @@ body {
 // Footer styles
 footer {
   position: absolute;
+  right: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
+  min-height: 60px;
   background-color: #f9be02;
+  margin-top: 50px;
 
   a {
     color: #f53240;
@@ -124,7 +131,8 @@ footer {
 }
 
 .timer {
-  margin-top: 100px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .btn {
