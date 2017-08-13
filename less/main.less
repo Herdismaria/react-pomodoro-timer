@@ -25,6 +25,9 @@
 @navbar-default-link-hover-color: #7cdbd5;
 @navbar-default-brand-hover-color: #7cdbd5;
 
+@project-background-color: #f53240;
+@footer-background-color: #f9be02;
+
 @btn-default-color: #fff;
 @btn-default-bg: #1CCC4E;
 @btn-default-border: #1CCC4E;
@@ -91,7 +94,7 @@ footer {
   left: 0;
   width: 100%;
   min-height: 60px;
-  background-color: #f9be02;
+  background-color: @footer-background-color;
   margin-top: 50px;
 
   a {
@@ -172,4 +175,14 @@ footer {
     background-color: #F9D86B;
     border-color: #F9D86B;
   }
+}
+
+.thumbnail {
+  background-color: @project-background-color;
+}
+
+.project-description {
+  height: 50px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
