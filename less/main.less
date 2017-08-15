@@ -25,8 +25,14 @@
 @navbar-default-link-hover-color: #7cdbd5;
 @navbar-default-brand-hover-color: #7cdbd5;
 
-@project-background-color: #f53240;
-@footer-background-color: #f9be02;
+// App colors
+@green: #1CCC4E;
+@yellow: #f9be02;
+@red: #f53240;
+@sea: #02c8a7;
+
+// thumbnail
+@thumbnail-padding: 3px;
 
 @btn-default-color: #fff;
 @btn-default-bg: #1CCC4E;
@@ -64,11 +70,14 @@ html {
 body {
   position: relative;
   margin: 0;
-  padding-bottom: 200px;
+  padding-bottom: 160px;
   min-height: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
+main {
+  position: relative;
+}
 // Navigation styles
 .navbar {
   border: 0;
@@ -83,7 +92,7 @@ body {
   margin-left: 40px;
   font-size: 20px;
   font-weight: 700;
-  color: #f53240;
+  color: @red;
 }
 
 // Footer styles
@@ -94,16 +103,15 @@ footer {
   left: 0;
   width: 100%;
   min-height: 60px;
-  background-color: @footer-background-color;
-  margin-top: 50px;
+  background-color: @yellow;
 
   a {
-    color: #f53240;
+    color: @red;
     text-decoration: underline;
 
     &:hover,
     &:focus {
-      color: #02c8a7;
+      color: @sea;
       text-decoration: none;
     }
   }
@@ -115,13 +123,27 @@ footer {
 
 
   label {
-    transition: background-color .3s;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
 
     &:active,
     &.active {
       z-index: 2;
-      background-color: #1CCC4E;
-      border-color: #1CCC4E;
+      background-color: @green;
+      border-color: @green;
+      border-width: 1px;
+
+      &:hover {
+        background-color: #6CCC87;
+        border-color: #6CCC87;
+      }
+    }
+
+    &:hover {
+      z-index: 2;
+      background-color: #F9D86B;
+      border-color: #F9D86B;
       border-width: 1px;
     }
   }
@@ -129,8 +151,8 @@ footer {
 
 .timer-clock {
   .jumbotron {
-    background-color: #f53240;
-    border-radius: 200px;
+    background-color: @red;
+    border-radius: 10rem;
   }
 }
 
@@ -145,9 +167,10 @@ footer {
 }
 
 .timer-buttons .btn-default {
-  transition: background-color .3s;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  transition: all 400ms ease-in-out;
 
-  &:focus,
   &:hover {
     color: #fff;
     background-color: #6CCC87;
@@ -156,9 +179,10 @@ footer {
 }
 
 .timer-buttons .btn-primary {
-  transition: background-color .3s;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  transition: all 400ms ease-in-out;
 
-  &:focus,
   &:hover {
     color: #fff;
     background-color: #FC8F71;
@@ -167,9 +191,10 @@ footer {
 }
 
 .timer-buttons .btn-warning {
-  transition: background-color .3s;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  transition: all 400ms ease-in-out;
 
-  &:focus,
   &:hover {
     color: #fff;
     background-color: #F9D86B;
@@ -178,11 +203,52 @@ footer {
 }
 
 .thumbnail {
-  background-color: @project-background-color;
+  background-color: @red;
+  min-height: 140px;
+  border-radius: 1em;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  transition: all 400ms ease-in-out;
+
+  &:hover {
+    -webkit-transition: scale(1.1);;
+    -moz-transition: scale(1.1);;
+    transition: scale(1.1);;
+  }
 }
 
-.project-description {
-  height: 50px;
-  padding-top: 3px;
-  padding-bottom: 3px;
+.add-project .thumbnail {
+  background-color: #FF8C00;
+  text-color: @red;
+  min-height: 140px;
+  border-radius: 1em;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  transition: all 400ms ease-in-out;
+
+  &:hover {
+    -webkit-transition: scale(1.1);;
+    -moz-transition: scale(1.1);;
+    transition: scale(1.1);;
+  }
+
+  .glyphicon {
+    font-size: 30px;
+    top: 40px;
+  }
+}
+
+// button grow
+.grow {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.grow:hover, .grow:focus, .grow:active {
+  -webkit-transform: scale(1.07);
+  transform: scale(1.07);
 }

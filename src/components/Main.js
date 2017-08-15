@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Timer from './timer/Timer';
-import Project from './project/Project';
+import ProjectRouter from './project/ProjectRouter';
 
 class Main extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class Main extends React.Component {
         <div className='container-fluid'>
           <Switch>
             <Route exact path='/' component={Timer}/>
-            <Route exact path='/projects' component={Project}/>
+            <Route path='/projects' component={ProjectRouter}/>
           </Switch>
         </div>
       </main>

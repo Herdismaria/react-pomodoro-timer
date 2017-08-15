@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ProjectListItem from './ProjectListItem';
 
 const tableData = [
@@ -6,7 +7,7 @@ const tableData = [
     id: 1,
     name: 'Project 1',
     description: 'a basic description of project 1',
-    totalSeconds: 3454,
+    totalSeconds: 3454443,
     status: 'done',
   }, {
     id: 2,
@@ -48,15 +49,23 @@ const tableData = [
 ];
 
 class ProjectList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className='project-list'>
         {tableData.map( (project, index) => (
-          <ProjectListItem key={index} {...project}/>
+          <Link to={'/projects/' + index} key={index}><ProjectListItem {...project}/></Link>
         ))}
+        <a href='#'>
+          <div className='add-project'>
+            <div className="col-sm-4 col-md-6">
+              <div className="thumbnail grow">
+                <div className="caption text-center">
+                  <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     );
   }
