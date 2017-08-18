@@ -118,9 +118,13 @@ footer {
 }
 
 // timer styles
+.timer {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 .timer-countdown-controls {
   margin-bottom: 40px;
-
 
   label {
     -webkit-transition: all 400ms ease-in-out;
@@ -154,11 +158,6 @@ footer {
     background-color: @red;
     border-radius: 10rem;
   }
-}
-
-.timer {
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 .btn {
@@ -202,9 +201,14 @@ footer {
   }
 }
 
+// Project styles
+
+.project-list {
+  animation: fadeIn 1s ease;
+}
 .thumbnail {
   background-color: @red;
-  min-height: 140px;
+  min-height: 110px;
   border-radius: 1em;
   -webkit-transition: all 400ms ease-in-out;
   -moz-transition: all 400ms ease-in-out;
@@ -217,26 +221,51 @@ footer {
   }
 }
 
-.add-project .thumbnail {
+.add-button {
   background-color: #FF8C00;
-  text-color: @red;
-  min-height: 140px;
-  border-radius: 1em;
-  -webkit-transition: all 400ms ease-in-out;
-  -moz-transition: all 400ms ease-in-out;
-  transition: all 400ms ease-in-out;
+  position: relative;
+  margin: auto;
 
-  &:hover {
-    -webkit-transition: scale(1.1);;
-    -moz-transition: scale(1.1);;
-    transition: scale(1.1);;
+  label {
+    margin: 0px;
+    margin-left: -3px;
+    border: 1px solid @green;
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
   }
 
-  .glyphicon {
-    font-size: 30px;
-    top: 40px;
+  input {
+    margin: 0px;
+    margin-right: -3px;
+    border: 1px solid @green;
+    border-right: none;
+  }
+
+  .form-inline {
+    position: relative;
+    top: 25px;
+    animation: fadeIn 0.4s ease-out;
   }
 }
+
+.large-glyph {
+    font-size: 20px;
+    top: 27px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.no-project-message {
+  font-size: 30px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.no-projects-button {
+  max-width: 300px;
+}
+
+// animations
 
 // button grow
 .grow {
@@ -251,4 +280,324 @@ footer {
 .grow:hover, .grow:focus, .grow:active {
   -webkit-transform: scale(1.07);
   transform: scale(1.07);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+}
+
+@keyframes flipInX {
+  0% {
+    transform: perspective(800px) rotate3d(1,0,0,90deg);
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(800px) rotate3d(1,0,0,-20deg);
+    transition-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(800px) rotate3d(1,0,0,10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(800px) rotate3d(1,0,0,-5deg);
+  }
+
+  100% {
+    transform: perspective(800px);
+  }
+}
+
+.flipInX {
+  backface-visibility: visible !important;
+  animation-name: flipInX;
+}
+
+@keyframes flipOutX {
+  0% {
+    transform: perspective(400px);
+  }
+
+  30% {
+    transform: perspective(400px) rotate3d(1,0,0,-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: perspective(400px) rotate3d(1,0,0,90deg);
+    opacity: 0;
+  }
+}
+
+.flipOutX {
+  animation-name: flipOutX;
+  backface-visibility: visible !important;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  16.666% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  animation-name: shake;
+}
+
+
+// loading spinner
+.loading-spinner {
+  position : absolute;
+  top      : 200px;
+  left     : 50%;
+  -webkit-transform : translateX(-50%) translateY(-50%);
+     -moz-transform : translateX(-50%) translateY(-50%);
+          transform : translateX(-50%) translateY(-50%);
+}
+
+.dot {
+  background    : black;
+  border-radius : 100%;
+  color         : white;
+  height        : 30px;
+  line-height   : 30px;
+  text-align    : center;
+  width         : 30px;
+}
+
+.dotOne {
+  animation : dotOneKeyframes 5s ease  infinite;
+  background        : @red;
+  position          : absolute;
+  top               : 0;
+  left              : 0;
+}
+
+.dotTwo {
+  animation : dotTwoKeyframes 5s ease 0.4166666666666s infinite;
+  background        : @yellow;
+  position          : absolute;
+  top               : 0;
+  left              : 35px;
+}
+
+.dotThree {
+  animation : dotThreeKeyframes 5s ease 0.83333333333s infinite;
+  background        : @green;
+  position          : absolute;
+  top               : 35px;
+  left              : 35px;
+}
+
+@keyframes dotOneKeyframes {
+  0% {
+    top  : 0;
+    left : 0;
+  }
+  8.3333333333% {
+    top  : 35px;
+    left : 0;
+  }
+  16.6666666666% {
+
+  }
+  25% {
+    top  : 35px;
+    left : 0;
+  }
+  33.3333333333% {
+    top  : 35px;
+    left : 35px;
+  }
+  41.6666666666% {
+
+  }
+  50% {
+    top  : 35px;
+    left : 35px;
+  }
+  58.3333333333% {
+    top  : 0;
+    left : 35px;
+  }
+  66.6666666666% {
+
+  }
+  75% {
+    top  : 0;
+    left : 35px;
+  }
+  83.3333333333% {
+    top  : 0;
+    left : 0;
+  }
+  91.6666666666% {
+
+  }
+  100% {
+
+  }
+}
+
+
+@keyframes dotTwoKeyframes {
+  0% {
+    top  : 0;
+    left : 14px;
+  }
+  8.3333333333% {
+    top  : 0;
+    left : 0;
+  }
+  16.6666666666% {
+
+  }
+  25% {
+    top  : 0;
+    left : 0;
+  }
+  33.3333333333% {
+    top  : 35px;
+    left : 0;
+  }
+  41.6666666666% {
+
+  }
+  50% {
+    top  : 35px;
+    left : 0;
+  }
+  58.3333333333% {
+    top  : 35px;
+    left : 35px;
+  }
+  66.6666666666% {
+
+  }
+  75% {
+    top  : 35px;
+    left : 35px;
+  }
+  83.3333333333% {
+    top  : 0;
+    left : 35px;
+  }
+  91.6666666666% {
+
+  }
+  100% {
+
+  }
+}
+
+@keyframes dotThreeKeyframes {
+  0% {
+    top  : 35px;
+    left : 35px;
+  }
+  8.3333333333% {
+    top  : 0;
+    left : 35px;
+  }
+  16.6666666666% {
+
+  }
+  25% {
+    top  : 0;
+    left : 35px;
+  }
+  33.3333333333% {
+    top  : 0;
+    left : 0;
+  }
+  41.6666666666% {
+
+  }
+  50% {
+    top  : 0;
+    left : 0;
+  }
+  58.3333333333% {
+    top  : 35px;
+    left : 0;
+  }
+  66.6666666666% {
+
+  }
+  75% {
+    top  : 35px;
+    left : 0;
+  }
+  83.3333333333% {
+    top  : 35px;
+    left : 35px;
+  }
+  91.6666666666% {
+
+  }
+  100% {
+
+  }
 }

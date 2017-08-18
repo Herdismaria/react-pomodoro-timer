@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Timer from './timer/Timer.js';
 
 class Navigation extends React.Component {
   render() {

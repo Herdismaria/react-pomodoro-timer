@@ -4,7 +4,7 @@ class Footer extends React.Component {
   render() {
     return (
       <footer className='footer'>
-        <div className='container text-center'>
+        <div className='text-center container'>
           <div className='row'>
             <div className='col-xs-12 col-sm-12 col-md-12'>
               <h3 className='lead'><strong>Information</strong> and <strong>Copyright</strong></h3>

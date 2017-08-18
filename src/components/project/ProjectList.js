@@ -1,71 +1,80 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import ProjectListItem from './ProjectListItem';
 
-const tableData = [
-  {
-    id: 1,
-    name: 'Project 1',
-    description: 'a basic description of project 1',
-    totalSeconds: 3454443,
-    status: 'done',
-  }, {
-    id: 2,
-    name: 'Project 2',
-    description: 'a basic description of project 2 this is a longer description dont know how long though',
-    totalSeconds: 500303,
-    status: 'in progress'
-  }, {
-    id: 3,
-    name: 'Project 3',
-    description: 'short',
-    totalSeconds: 34,
-    status: 'done'
-  }, {
-    id: 4,
-    name: 'Project 4',
-    description: 'very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long very long vvery long ',
-    totalSeconds: 345544,
-    status: 'in progress'
-  }, {
-    id: 5,
-    name: 'Project 5',
-    description: 'a basic description of project 1',
-    totalSeconds: 343454,
-    status: 'not started'
-  }, {
-    id: 6,
-    name: 'Project 6',
-    description: 'a basic description of project 1',
-    totalSeconds: 3469754,
-    status: 'not started'
-  }, {
-    id: 7,
-    name: 'Project 7',
-    description: 'a basic description of project 1',
-    totalSeconds: 1,
-    status: 'in progress'
-  }
-];
-
 class ProjectList extends React.Component {
+  constructor(props) {
+    super();
+    this.state = {
+      projectName: '',
+    }
+    this.onChange = this.onChange.bind(this);
+    this.handleAddProject = this.handleAddProject.bind(this);
+  }
+
+  onChange(e) {
+    this.setState({projectName: e.target.value});
+  }
+
+  handleAddProject(e) {
+    e.preventDefault();
+
+    if (this.state.projectName === '') {
+      return;
+    }
+
+    this.props.onAddProject(this.state.projectName);
+    this.setState({projectName: ''});
+  }
+
   render() {
-    return (
-      <div className='project-list'>
-        {tableData.map( (project, index) => (
-          <Link to={'/projects/' + index} key={index}><ProjectListItem {...project}/></Link>
-        ))}
-        <a href='#'>
-          <div className='add-project'>
-            <div className="col-sm-4 col-md-6">
-              <div className="thumbnail grow">
-                <div className="caption text-center">
-                  <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </div>
+    var {projects, onToggleAddButton, showAddButton} = this.props;
+    var renderProjects = () => {
+      if (projects) {
+        return projects.map((project) => (
+          <Link to={'/projects/' + project.id} key={project.id}>
+            <ProjectListItem {...project}/></Link>
+        ));
+      }
+      return (
+        <p className='no-project-message text-center'>You have no projects</p>
+      );
+    };
+
+    let button = '';
+    if (showAddButton) {
+      button =
+      <div className='button-container'>
+        <div className={projects ? 'col-sm-4 col-md-6 text-center' : 'col-sm-12 col-md-12 text-center'}>
+          <div className={projects ? 'thumbnail add-button' : 'thumbnail add-button no-projects-button'} onClick={onToggleAddButton}>
+            <div className='form-inline'>
+              <div className='form-group'>
+                <input type='text' className='form-control' onChange={this.onChange} placeholder='Project Name'/>
+                <label type='button' className='btn btn-default' onClick={this.handleAddProject}>
+                  <span className='glyphicon glyphicon-plus' aria-hidden='true'></span>
+                </label>
               </div>
             </div>
           </div>
-        </a>
+        </div>
+      </div>;
+    } else {
+      button =
+      <div className='button-container'>
+        <div className={projects ? 'col-sm-4 col-md-6' : 'col-sm-12 col-md-12'}>
+          <div className={projects ? 'thumbnail grow add-button' : 'thumbnail add-button grow no-projects-button'} onClick={onToggleAddButton}>
+            <div className='caption text-center'>
+              <span className='glyphicon glyphicon-plus large-glyph' aria-hidden='true'></span>
+            </div>
+          </div>
+        </div>
+      </div>;
+    }
+
+    return (
+      <div className='project-list'>
+        {renderProjects()}
+        {button}
       </div>
     );
   }
